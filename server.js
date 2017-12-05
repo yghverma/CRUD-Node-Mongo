@@ -1,6 +1,3 @@
-const express = require('express');
-const app = express();
-app.listen(3000,function(){
-    console.log("Aur bete");
-});
-require('./route/routes.js')(app);
+var appJs = require('./app.js');
+
+appJs.applicationObject.set('port', process.env.port || 3001);

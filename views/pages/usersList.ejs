@@ -1,0 +1,38 @@
+<html>
+	<head>
+		<% include ../partials/header %>
+	</head>
+	<body>
+        <table border='1'>
+            <tr>
+                <b>User Details List</b>
+            </tr>
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Gender</th>
+                <th>City</th>
+                <th>PinCode</th>
+                <th>EmailId</th>
+                <th>MobileNo</th>
+                <th>Update User</th>
+                <th>Remove User</th>
+            </tr>
+            <% documents.forEach(function(document){ %>
+                <tr>
+                    <td><%= document._id %></td>
+                    <td><%= document.firstName %></td>
+                    <td><%= document.LastName %></td>
+                    <td><%= document.sex %></td>
+                    <td><%= document.City %></td>
+                    <td><%= document.pincode %></td>
+                    <td><%= document.emailid %></td>
+                    <td><%= document.mobileno %></td>
+                    <td><a href="/UsersUpdate/<%= document._id %>">Update</a></td>
+                    <td><a href="/UserRemove/<%= document._id %>">Remove</a></td>
+                </tr>
+            <% }); %>
+            <tr><td><a href="/">User Registration</a></td></tr>
+    </body>
+</html>

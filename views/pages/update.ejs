@@ -1,0 +1,57 @@
+<html>
+	<head>
+		<% include ../partials/header %>
+	</head>
+	<body>
+		<% documents.forEach(function(document){ %>
+		<form action="/UserInformationUpdate/<%= document._id %>" method="POST">
+			<table>					
+				<tr>
+					<td><b>Student Registration Form</b></td>
+				</tr>
+				<tr>
+					<td>First Name</td>
+					<td><input type=text name=firstName id="fName" size="30" value=<%= document.firstName %> ></td>
+				</tr>
+				<tr>
+					<td>Last Name</td>
+					<td><input type=text name=LastName id="lName" size="30" value=<%= document.LastName %> ></td>
+				</tr>
+				<tr>
+					<td>Gender</td>
+					<% var sex = document.sex %>
+ 						<td><input type="radio" name="sex" value="male" size="10" <% if(sex == 'male'){ %>	checked	<% } %>	> Male
+							<input type="radio" name="sex" value="Female" size="10" <% if(sex == 'Female'){ %> checked <% } %> > Female</td>
+				</tr>
+				<tr>
+					<td>City</td>
+					<% var city = document.City %>
+					<td><select name="City">
+							<option value="-1" <% if(city == '-1'){ %> selected	<% } %> >select..</option>
+							<option value="New Delhi" <% if(city == 'New Delhi'){ %> selected <% } %> >NEW DELHI</option>
+							<option value="Mumbai" <% if(city == 'Mumbai'){ %> selected <% } %> >MUMBAI</option>
+							<option value="Goa" <% if(city == 'Goa'){ %> selected <% } %> >GOA</option>
+							<option value="Haryana" <% if(city == 'Haryana'){ %> selected <% } %> >Hisar</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>PinCode</td>
+					<td><input type="text" name="pincode" id="pincode" size="30" value=<%= document.pincode %>></td>
+				</tr>
+				<tr>
+					<td>EmailId</td>
+					<td><input type="text" name="emailid" id="emailid" size="30" value=<%= document.emailid %>></td>
+				</tr>
+				<tr>
+					<td>MobileNo</td>
+					<td><input type="text" name="mobileno" id="mobileno" size="30" value=<%= document.mobileno %>></td>
+				</tr>
+				<tr>
+					<td><button type="submit">Update Form</button></td>
+				</tr>
+			</table>
+			<% }); %>
+		</form>
+	</body>
+</html>

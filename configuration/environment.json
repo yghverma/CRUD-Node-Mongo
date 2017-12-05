@@ -1,0 +1,10 @@
+{
+    "dbConnection":{
+        "name":"Mongo",
+        "url":"mongodb://localhost:27017/TestMongoDatabase",
+        "options":{
+            "useMongoClient":true,
+            "autoIndex":false
+        }
+    }
+}
